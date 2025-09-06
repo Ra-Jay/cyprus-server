@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     depth: 2, // Ensures relations like images are populated with URLs
     limit: 1,
   });
-  console.log("retuslt:", result);
+  // console.log("retuslt:", result);
 
   const page = result.docs[0];
 
@@ -54,9 +54,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <div className="hidden relative overflow-hidden h-full sm:flex items-start w-full px-8 py-0 max-w-[1440px] mx-auto">
         {/* Background - ParallaxScroll component */}
         <div className="absolute h-[35rem] min-w-[1120px] max-w-[1120px] left-[20%] inset-0 z-0 rounded-xl overflow-hidden border border-transparent">
-          <div>
+          <div className='text-black'>
             {page.layout?.map((block, index) => {
               if (block.blockType === 'parallax-scroll') {
+                 <div> testing </div>
                 // Map items to ensure image.url is accessible (populated via depth)
                 const items = block.items?.map((item) => ({
                   ...item,
@@ -64,10 +65,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     url: typeof item.image === 'object' ? item.image.url : '', // Fallback if not populated
                   },
                 }));
-                console.log("items:", items);
-                { items != undefined && <ParallaxScroll key={index} images={items} /> };
-                return null
+                console.log("items:", items + " index: " + items != undefined);
+                // { items != undefined && <ParallaxScroll key={index} images={items} /> }
+                return items ? <ParallaxScroll key={index} images={items} /> : null
               }
+              <div> testing </div>
               return null; // Handle other blocks here if added
             })}
           </div>
