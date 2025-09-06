@@ -22,12 +22,19 @@ export async function generateStaticParams() {
   return pages.docs.map((page) => ({ slug: 'home' }));
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const payload = await getPayloadHMR({ config: await configPromise });
 
+  // const result = await payload.find({
+  //   collection: 'pages',
+  //   where: { slug: { equals: params.slug } },
+  //   depth: 2, // Ensures relations like images are populated with URLs
+  //   limit: 1,
+  // });
   const result = await payload.find({
     collection: 'pages',
-    where: { slug: { equals: params.slug } },
+    where: { slug: { equals: resolvedParams.slug } },
     depth: 2, // Ensures relations like images are populated with URLs
     limit: 1,
   });
