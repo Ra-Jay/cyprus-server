@@ -1,59 +1,67 @@
-import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
-import { getPayload } from 'payload'
-import React from 'react'
-import { fileURLToPath } from 'url'
+import Card from "@/components/card";
+import Navbar from "@/components/navbar";
+import { ParallaxScroll } from "@/components/ui/paralax-scroll";
 
-import config from '@/payload.config'
-import './styles.css'
+export default function Home() {
+  const images = [
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature.jpeg",
 
-export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+    "/nature-2.avif",
+    "/nature.jpeg",
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature.jpeg",
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature-2.avif",
+    "/nature.jpeg",
+    "/nature.jpeg",
+
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature.jpeg",
+    "/nature.jpeg",
+    "/nature-2.avif",
+
+    "/nature-2.avif",
+    "/nature.jpeg",
+    "/nature.jpeg",
+    "/nature-2.avif",
+    "/nature.jpeg",
+  ];
+
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
+    <div className=" flex flex-col h-[100vh] overflow-x-hidden sm:overflow-hidden bg-gray-50">
+      <div className="w-full  border-b-[1px] mb-[48px]">
+        <Navbar />
+      </div>
+      <div className="hidden relative overflow-hidden h-full sm:flex items-start w-full px-8 py-0 max-w-[1440px] mx-auto">
+        {/* Background - ParallaxScroll component */}
+        <div className="absolute h-[35rem] min-w-[1120px] max-w-[1120px] left-[20%] inset-0 z-0 rounded-xl overflow-hidden border border-transparent">
+          <div>
+            {/* <ParallaxScroll images={images} /> */}
+          </div>
+        </div>
+
+        {/* Foreground - Booking Card */}
+        <div className="relative z-10 mt-20 max-w-md">
+          <Card />
         </div>
       </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
+      <div className="sm:hidden flex gap-8 flex-col p-4">
+        <div className="rounded-2xl  overflow-hidden">
+          <img src="/hero.png" alt="" />
+        </div>
+        <div className="flex justify-center">
+          <Card />
+        </div>
       </div>
     </div>
-  )
+  );
 }
