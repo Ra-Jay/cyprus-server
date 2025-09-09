@@ -56,11 +56,6 @@ export const ParallaxScroll = ({
   const col3 = images.slice(10, 15);
   const col4 = images.slice(15, 20);
 
-
-  console.log("col1 ======== ", col1);
-  console.log("col2 ======== ", col2);
-  console.log("col3 ======== ", col3);
-
   const heights = ["h-90"];
 
   const Card = ({ src, i }: { src: any; i: number }) => (
