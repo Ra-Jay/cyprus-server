@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <div className=" flex flex-col h-[100vh] overflow-x-hidden sm:overflow-hidden bg-gray-50">
-      <div className="w-full  border-b-[1px] mb-[48px]">
+      <div className="w-full  border-b-[1px] mb-[48px] bg-[#7ce2d3]">
         <Navbar />
       </div>
       <div className="hidden relative overflow-hidden h-full sm:flex items-start w-full px-8 py-0 max-w-[1440px] mx-auto">

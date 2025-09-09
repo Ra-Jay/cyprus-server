@@ -38,7 +38,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     depth: 2, // Ensures relations like images are populated with URLs
     limit: 1,
   });
-  // console.log("retuslt:", result);
 
   const page = result.docs[0];
 
@@ -48,7 +47,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <div className=" flex flex-col h-[100vh] overflow-x-hidden sm:overflow-hidden bg-gray-50">
-      <div className="w-full  border-b-[1px] mb-[48px]">
+      <div className="w-full  border-b-[1px] mb-[48px] bg-[#7ce2d3]">
         <Navbar />
       </div>
       <div className="hidden relative overflow-hidden h-full sm:flex items-start w-full px-8 py-0 max-w-[1440px] mx-auto">
@@ -65,8 +64,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     url: typeof item.image === 'object' ? item.image.url : '', // Fallback if not populated
                   },
                 }));
-                console.log("items:", items + " index: " + items != undefined);
-                // { items != undefined && <ParallaxScroll key={index} images={items} /> }
                 return items ? <ParallaxScroll key={index} images={items} /> : null
               }
               <div> testing </div>
