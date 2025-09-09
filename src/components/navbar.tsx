@@ -6,7 +6,7 @@ export default function Navbar() {
       <div>
         <img src="/logo2.png" alt="logo" className='w-[200px]' />
       </div>
-      <div className='pr-[22px]'>
+      <div className=''>
         Become a supplier
       </div>
     </div>
