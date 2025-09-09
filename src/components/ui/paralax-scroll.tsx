@@ -66,7 +66,7 @@ export const ParallaxScroll = ({
   const Card = ({ src, i }: { src: any; i: number }) => (
     <div
       className={cn(
-        "relative overflow-hidden rounded-4xl shadow-lg transition-all duration-300 ease-out hover:scale-105 cursor-pointer hover:card-hover",
+        "relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 ease-out hover:scale-105 cursor-pointer hover:card-hover",
         heights[i % heights.length]
       )}
     >
@@ -76,7 +76,7 @@ export const ParallaxScroll = ({
         alt={titleFor(i)}
       />
       <div className="absolute overflow-hidden inset-0 bg-gradient-to-t from-black/10 via-black/20 to-transparent" />
-      <div className="absolute left-0 right-0 bottom-0 space-y-2 backdrop-blur-sm bg-gray-400/30 rounded-b-4xl p-4">
+      <div className="absolute left-0 right-0 bottom-0 space-y-2 backdrop-blur-sm bg-gray-400/30 rounded-b-xl p-4">
         <h3 className="text-white text-lg font-semibold drop-shadow-sm">
           {src.title ? src.title : titleFor(i)}
         </h3>
@@ -141,7 +141,7 @@ export const ParallaxScroll = ({
       `}</style>
 
       <div className="flex gap-3 max-w-6xl mx-auto -my-24">
-        <div className="grid gap-3 w-[25%] pt-0 roll-up p-2">
+        <div className="grid gap-3 w-[25%] pt-0 roll-up">
           {col1.map((src, i) => (
             <Card key={`c1-${i}`} src={src} i={i} />
           ))}
@@ -150,7 +150,7 @@ export const ParallaxScroll = ({
           ))}
         </div>
 
-        <div className="grid gap-3 w-[25%] transform -translate-y-42 roll-down p-2">
+        <div className="grid gap-3 w-[25%] transform -translate-y-42 roll-down">
           {col2.map((src, i) => (
             <Card key={`c2-${i}`} src={src} i={i + col1.length} />
           ))}
@@ -159,7 +159,7 @@ export const ParallaxScroll = ({
           ))}
         </div>
 
-        <div className="grid gap-3 w-[25%] pt-0 roll-up p-2">
+        <div className="grid gap-3 w-[25%] pt-0 roll-up">
           {col3.map((src, i) => (
             <Card
               key={`c3-${i}`}
@@ -176,7 +176,7 @@ export const ParallaxScroll = ({
           ))}
         </div>
 
-        <div className="grid gap-3 w-[25%] transform -translate-y-42 roll-down p-2">
+        <div className="grid gap-3 w-[25%] transform -translate-y-42 roll-down">
           {col4.map((src, i) => (
             <Card
               key={`c4-${i}`}
