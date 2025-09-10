@@ -190,7 +190,7 @@ export default function Card() {
         </div>
 
         {/* Search Button */}
-        <button className="w-full mt-6 bg-gradient-to-r from-[#00B5F1] via-[#00AEEF] to-[#0066B3] text-white py-3 px-4 rounded-md font-medium transition-all duration-200 flex items-center justify-center gap-2">
+        <button className="w-full mt-6 bg-gradient-to-r from-[#ddf5b4] via-[#d0f3c0] to-[#daf6af] text-black py-3 px-4 rounded-md font-medium transition-all duration-200 flex items-center justify-center gap-2">
           <Search className="w-5 h-5" />
           Search
         </button>

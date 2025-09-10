@@ -29,8 +29,8 @@ function ratingFor(i: number) {
 
 function gradientFor(i: number) {
   const gradients = [
-    "bg-gradient-to-r from-pink-500 to-violet-600",
-    "bg-gradient-to-r from-[#00B5F1] via-[#00AEEF] to-[#0066B3]"
+    "bg-gradient-to-r from-[#ddf5b4] via-[#d0f3c0] to-[#daf6af]",
+    "bg-gradient-to-r from-[#00B5F1] via-[#00AEEF] to-[#0066B3] text-white",
   ];
   return gradients[i % gradients.length];
 }
@@ -78,7 +78,7 @@ export const ParallaxScroll = ({
 
         <div
           className={cn(
-            "inline-flex items-center rounded-full px-3 py-1 text-white shadow/20 ring-1 ring-white/20",
+            "inline-flex items-center rounded-full px-3 py-1 text-black shadow/20 ring-1 ring-white/20",
             gradientFor(i)
           )}
         >
